@@ -25,10 +25,10 @@ public class ProductController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Product product = new Product();
-        product.setProductName( request.getParameter( "name" ) );
-        product.setProductDescription( request.getParameter( "description" ) );
-        product.setProductImage( request.getParameter( "image" ) );
-        product.setProductPrice( Integer.parseInt( request.getParameter( "price" ) ) );
+        product.setProductName( request.getParameter( "productName" ) );
+        product.setProductDescription( request.getParameter( "productDescription" ) );
+        product.setProductImage( request.getParameter( "productImage" ) );
+        product.setProductPrice( Integer.parseInt( request.getParameter( "productPrice" ) ) );
         String productId = request.getParameter("id");
 
         if( productId == null)
