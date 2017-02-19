@@ -1,44 +1,12 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
-<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-    <head>
-        <title>WarpWebStore</title>
-    </head>
-
-    <body>
-        <sql:setDataSource var="mysql"
-                           driver="com.mysql.cj.jdbc.Driver"
-                           url="jdbc:mysql://localhost/store_db"
-                           user="root"
-                           password="wasd12"/>
-
-        <sql:query var="query" dataSource="${mysql}">
-            SELECT * FROM products;
-        </sql:query>
-
-    <table>
-        <tr>
-            <th>Vendor Code</th>
-            <th>Product Name</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Price</th>
-        </tr>
-
-        <c:forEach var="row" items="${query.rows}">
-            <tr>
-                <td><c:out value="${row.id}"/></td>
-                <td><c:out value="${row.name}"/></td>
-                <td><c:out value="${row.description}"/></td>
-                <td><c:out value="${row.image}"/></td>
-                <td><c:out value="${row.price}"/></td>
-            </tr>
-        </c:forEach>
-    </table>
-    </body>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Welcome</title>
+</head>
+<body>
+<jsp:forward page="/ProductController?action=listProduct.jsp"/>
+</body>
 </html>
