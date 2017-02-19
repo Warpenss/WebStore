@@ -13,21 +13,27 @@
     <fieldset>
         <div>
             <label>Name</label> <input type="text"
-                                                             name="productName" value="<c:out value="${product.productName}" />"
-                                                             placeholder="productName" />
+                                       name="productName"
+                                       value="<c:out value="${product.productName}" />"
+                                       placeholder="productName" />
         </div>
         <div>
             <label >Description</label> <input type="text"
-                                                           name="productDescription" value="<c:out value="${product.productDescription}" />"
-                                                           placeholder="productDescription" />
+                                               name="productDescription"
+                                               value="<c:out value="${product.productDescription}" />"
+                                               placeholder="productDescription" />
         </div>
         <div>
-            <label>Image</label> <input type="text" name="productImage"
-                                                      value="<c:out value="${product.productImage}" />" placeholder="productImage" />
+            <label>Image</label> <input type="text"
+                                        name="productImage"
+                                        value="<c:out value="${product.productImage}" />"
+                                        placeholder="productImage" />
         </div>
         <div>
-            <label>Price</label> <input type="text" name="productPrice"
-                                                  value="<c:out value="${product.productPrice}" />" placeholder="productPrice" />
+            <label>Price</label> <input type="text"
+                                        name="productPrice"
+                                        value="<c:out value="${product.productPrice}" />"
+                                        placeholder="productPrice" />
         </div>
         <div>
             <input type="submit" value="Submit" />
