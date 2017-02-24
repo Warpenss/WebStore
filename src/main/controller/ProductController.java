@@ -18,6 +18,8 @@ public class ProductController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     public static final String lIST_PRODUCT = "/listProduct.jsp";
     public static final String INSERT_OR_EDIT = "/product.jsp";
+    public static final String CATALOG = "/catalog.jsp";
+    public static final String BUY = "/buy.jsp";
 
     public ProductController() {
         dao = new ProductDAOImplementation();
@@ -87,9 +89,13 @@ public class ProductController extends HttpServlet {
         else if( action.equalsIgnoreCase( "insert" ) ) {
             forward = INSERT_OR_EDIT;
         }
-        else {
+        else if (action.equalsIgnoreCase("listProduct")){
             forward = lIST_PRODUCT;
             request.setAttribute("products", dao.getAllProducts() );
+        }
+        else {
+            forward = CATALOG;
+            request.setAttribute("products", dao.getAllProducts());
         }
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);

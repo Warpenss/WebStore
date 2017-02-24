@@ -16,7 +16,6 @@
         <th>Description</th>
         <th>Image</th>
         <th>Price</th>
-        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -27,7 +26,7 @@
             <td><c:out value="${product.productDescription}" /></td>
             <td><c:out value="${product.productImage}" /></td>
             <td><c:out value="${product.productPrice}" /></td>
-            <td><a href="ProductController?action=edit&productId=<c:out value="${product.productId }"/>">Buy</a></td>
+            <td><a href="ProductController?action=buy&productId=<c:out value="${product.productId }"/>">Buy</a></td>
         </tr>
     </c:forEach>
     </tbody>

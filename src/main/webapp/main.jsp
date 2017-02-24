@@ -7,6 +7,6 @@
     <title>Welcome</title>
 </head>
 <body>
-<jsp:forward page="/ProductController?action=listProduct"/>
+<jsp:forward page="/ProductController?action=catalog"/>
 </body>
 </html>
