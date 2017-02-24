@@ -93,6 +93,12 @@ public class ProductController extends HttpServlet {
             forward = lIST_PRODUCT;
             request.setAttribute("products", dao.getAllProducts() );
         }
+        else if( action.equalsIgnoreCase( "buy" ) ) {
+            forward = BUY;
+            int productId = Integer.parseInt(request.getParameter("productId"));
+            Product product = dao.getProductById(productId);
+            request.setAttribute("product", product);
+        }
         else {
             forward = CATALOG;
             request.setAttribute("products", dao.getAllProducts());
