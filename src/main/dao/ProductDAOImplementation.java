@@ -87,7 +87,7 @@ public class ProductDAOImplementation implements ProductDAO {
             preparedStatement.setInt(1, productId);
             ResultSet resultSet = preparedStatement.executeQuery();
             while( resultSet.next() ) {
-                product.setProductId( resultSet.getInt( "productId" ) );
+                product.setProductId( resultSet.getInt( "id" ) );
                 product.setProductName( resultSet.getString( "name" ) );
                 product.setProductDescription( resultSet.getString( "description" ) );
                 product.setProductImage( resultSet.getString( "image" ) );

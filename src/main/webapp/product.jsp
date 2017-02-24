@@ -12,6 +12,13 @@
 <form action="ProductController" method="post">
     <fieldset>
         <div>
+            <label>Product ID</label> <input type="text"
+                                             name="productId"
+                                             value="<c:out value="${product.productId}" />"
+                                             readonly="readonly"
+                                             placeholder="Product ID" />
+        </div>
+        <div>
             <label>Name</label> <input type="text"
                                        name="productName"
                                        value="<c:out value="${product.productName}" />"

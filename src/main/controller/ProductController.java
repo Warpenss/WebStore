@@ -24,19 +24,45 @@ public class ProductController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Product product = new Product();
-        product.setProductName( request.getParameter( "productName" ) );
-        product.setProductDescription( request.getParameter( "productDescription" ) );
-        product.setProductImage( request.getParameter( "productImage" ) );
-        product.setProductPrice( Integer.parseInt( request.getParameter( "productPrice" ) ) );
-        String productId = request.getParameter("id");
+        String productId = null;
+        String productName = "No name";
+        String productDescription = "No description";
+        String productImage = "No image";
+        int productPrice = 0;
 
-        if( productId == null)
+        if (!request.getParameter("productId").equals("")) {
+            productId = request.getParameter("productId");
+        }
+        if (!request.getParameter("productName").equals("")) {
+            productName = request.getParameter("productName");
+        }
+
+        if (!request.getParameter("productDescription").equals("")) {
+            productDescription = request.getParameter("productDescription");
+        }
+
+        if (!request.getParameter("productImage").equals("")) {
+            productImage = request.getParameter("productImage");
+        }
+
+        if (!request.getParameter("productPrice").equals("")) {
+            productPrice = Integer.parseInt(request.getParameter("productPrice"));
+        }
+
+        Product product = new Product();
+
+        product.setProductName(productName);
+        product.setProductDescription(productDescription);
+        product.setProductImage(productImage);
+        product.setProductPrice(productPrice);
+
+        if(productId == null)
             dao.addProduct(product);
         else {
-            product.setProductId( Integer.parseInt(productId) );
+            product.setProductId(Integer.parseInt(productId));
             dao.updateProduct(product);
         }
+
         RequestDispatcher view = request.getRequestDispatcher( lIST_PRODUCT );
         request.setAttribute("products", dao.getAllProducts());
         view.forward(request, response);
@@ -54,7 +80,7 @@ public class ProductController extends HttpServlet {
         }
         else if( action.equalsIgnoreCase( "edit" ) ) {
             forward = INSERT_OR_EDIT;
-            int productId = Integer.parseInt( request.getParameter("productId") );
+            int productId = Integer.parseInt(request.getParameter("productId"));
             Product product = dao.getProductById(productId);
             request.setAttribute("product", product);
         }
@@ -65,7 +91,7 @@ public class ProductController extends HttpServlet {
             forward = lIST_PRODUCT;
             request.setAttribute("products", dao.getAllProducts() );
         }
-        RequestDispatcher view = request.getRequestDispatcher( forward );
+        RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
     }
 }
